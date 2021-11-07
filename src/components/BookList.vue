@@ -3,19 +3,20 @@
     Loading...
   </div>
   <div v-else-if="result && result.books">
-    <div v-for="book in result.books" :key="book.title">
-      <div>{{ book.title }}</div>
-      <div>{{ book.author }}</div>
-    </div>
+    <book-list-item v-for="book in result.books" :book="book" :key="book.title" class="p-4 border-b" />
   </div>
 </template>
 
 <script>
+import { defineComponent } from 'vue'
+import BookListItem from '@/components/BookListItem'
 import useBooks from '@/composables/useBooks'
 
-export default {
+export default defineComponent({
+  name: 'BookList',
+  components: { BookListItem },
   setup () {
     return useBooks()
   }
-}
+})
 </script>
