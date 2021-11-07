@@ -1,18 +1,17 @@
-import { ref } from 'vue'
-import { useQuery } from '@vue/apollo-composable'
+import { useQuery, UseQueryReturn } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
 
-type Book = {
-  title: string,
+interface Book {
+  title: string
   author: string
 }
 
-type Result = {
+interface Result {
   books: Book[]
 }
 
-export default function useBooks () {
-  const { result, loading } = useQuery<Result>(gql`
+export default function useBooks (): UseQueryReturn<Result, undefined> {
+  return useQuery<Result>(gql`
     query listBooks {
       books {
         title,
@@ -20,6 +19,4 @@ export default function useBooks () {
       }
     }
   `)
-
-  return { result, loading }
 }
