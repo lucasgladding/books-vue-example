@@ -1,17 +1,13 @@
 <template>
-  <div>
-    <div>{{ book.title }}</div>
-    <div class="text-gray-400">{{ book.author }}</div>
-  </div>
+  <article>
+    <h3>{{ book.title }}</h3>
+    <p class="text-gray-400">{{ book.author }}</p>
+  </article>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-
-interface Book {
-  title: string
-  author: string
-}
+import Book from '@/books/Book'
 
 export default defineComponent({
   name: 'BookListItem',

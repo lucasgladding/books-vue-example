@@ -1,10 +1,6 @@
 import { useQuery, UseQueryReturn } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
-
-interface Book {
-  title: string
-  author: string
-}
+import Book from '@/books/Book'
 
 interface Result {
   books: Book[]
