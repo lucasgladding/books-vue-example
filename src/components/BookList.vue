@@ -7,9 +7,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
-import BookListItem from '@/components/BookListItem'
+import BookListItem from '@/components/BookListItem.vue'
 import useBooks from '@/composables/useBooks'
 
 export default defineComponent({

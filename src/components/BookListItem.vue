@@ -5,13 +5,18 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script lang="ts">
+import { defineComponent, PropType } from 'vue'
+
+interface Book {
+  title: string
+  author: string
+}
 
 export default defineComponent({
   name: 'BookListItem',
   props: {
-    book: Object
+    book: Object as PropType<Book>
   }
 })
 </script>
