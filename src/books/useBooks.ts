@@ -11,10 +11,10 @@ export const LIST_BOOKS_QUERY = gql`
   }
 `
 
-interface Result {
+interface ListBooksResult {
   books: Book[]
 }
 
-export default function useBooks (): UseQueryReturn<Result, undefined> {
-  return useQuery<Result>(LIST_BOOKS_QUERY)
+export default function useBooks (): UseQueryReturn<ListBooksResult, undefined> {
+  return useQuery<ListBooksResult>(LIST_BOOKS_QUERY)
 }

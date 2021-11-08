@@ -1,8 +1,7 @@
 import { provideApolloClient } from '@vue/apollo-composable'
 import { ApolloClient, ApolloLink, InMemoryCache, Observable } from '@apollo/client/core'
 import useBooks from '@/books/useBooks'
-
-const wait = (timeout = 0) => new Promise(resolve => setTimeout(resolve, timeout))
+import { wait } from '@/utils'
 
 describe('useBooks', () => {
   it('lists books', async () => {
