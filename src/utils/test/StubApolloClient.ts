@@ -1,12 +1,12 @@
 import { ApolloClient, ApolloLink, InMemoryCache, Observable, Operation } from '@apollo/client/core'
 import { provideApolloClient } from '@vue/apollo-composable'
 
-type OperationResponseHandler = (operation: Operation) => any
+type HandleOperationRequest = (operation: Operation) => any
 
 export default class StubApolloClient {
   private readonly client: ApolloClient<any>
 
-  private handlers: OperationResponseHandler[] = []
+  private readonly handlers: HandleOperationRequest[] = []
 
   constructor () {
     const link = new ApolloLink((operation: Operation) => {
@@ -23,7 +23,7 @@ export default class StubApolloClient {
     })
   }
 
-  register (handler: OperationResponseHandler): void {
+  register (handler: HandleOperationRequest): void {
     this.handlers.push(handler)
   }
 
